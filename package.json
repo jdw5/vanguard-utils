@@ -1,0 +1,45 @@
+{
+  "name": ":package_name",
+  "version": "0.0.1",
+  "description": ":package_description",
+  "keywords": [],
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run format && vite build && vue-tsc --declaration --emitDeclarationOnly",
+    "format": "npx @biomejs/biome format --write src/",
+    "patch": "npm version patch --no-git-tag-version",
+    "minor": "npm version minor --no-git-tag-version",
+    "major": "npm version major --no-git-tag-version",
+    "release": "npm run build && npm publish",
+    "init": "npx node ./init.js && npm i"
+  },
+  "author": ":package_author",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/:package_username/:package_name.git"
+  },
+  "homepage": "https://github.com/:package_username/:package_name#readme",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/:package_name.umd.cjs",
+  "module": "./dist/:package_name.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/:package_name.js",
+      "require": "./dist/:package_name.umd.cjs"
+    }
+  },
+  "peerDependencies": {
+    "axios": "^1.2.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.2",
+    "@types/node": "^18.0.0",
+    "axios": "^1.2.0",
+    "typescript": "^4.5.4",
+    "vite": "^4.0.4"
+  }
+}
